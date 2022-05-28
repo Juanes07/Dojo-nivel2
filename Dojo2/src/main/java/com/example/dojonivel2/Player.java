@@ -1,9 +1,16 @@
 package com.example.dojonivel2;
 
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigInteger;
+
+@Document(collection = "jugadores")
 public class Player {
-    public int id;
+
+    @Id ObjectId _id;
+    public Integer id;
     public String name;
     public int age;
     public String icon;
@@ -16,7 +23,7 @@ public class Player {
 
     }
 
-    public Player(int id, String name, int age, String icon, String national, int winners, int games, String club) {
+    public Player(Integer id, String name, int age, String icon, String national, int winners, int games, String club) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -27,11 +34,11 @@ public class Player {
         this.club = club;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

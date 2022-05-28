@@ -26,4 +26,15 @@ public class PlayerControllador {
         return service.getByIdPlayer(id);
     }
 
+    @GetMapping("/listage")
+    public Flux<Player> findallPlayersAge35() {
+        return service.listPlayer().filter(player -> player.getAge()>35);
+    }
+
+    @GetMapping("/listwin")
+    public Flux<Player> findallPlayerswin50() {
+        return service.listPlayer().filter(player -> player.getWinners()>50);
+    }
+
+
 }
